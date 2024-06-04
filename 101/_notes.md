@@ -1,4 +1,4 @@
-5.12.24 - page 116 of 338
+5.12.24 - page 153 of 338
 
 # Follow this general process for creating a new Django environment, project, and app:
   ## Create a new folder directory and navigate into it
@@ -120,6 +120,19 @@
   - Next, you build the database with the `python3 manage.py migrate` command, which executes the instructions in the migrations file 
 
   Note: it's not required to include the app_name after the makemigrations command. However, if you do not specify an app name, a migrations file will be created for all available changes throughout the Django project.
+
+  Simple example of a Blog site dataset table in Django:
+
+  - Table called "Post"
+  - Columns for Title, Author, Body
+  - Rows (the actual data)
+
+  ### Linking tables together
+  Typically, to link two tables together (because they have some shared relationship), you do this by linking the primary key, usually user_id, to the relevant field in the other table. 
+
+  For example, to link a User model primary key, user_id to another model called Post, which has an "author" field, you'd link the user_id to the Post.author field.
+
+  This is known as a foreign key relationship. Foreign keys in one table always correspond to the primary keys of a different table.
 
   ## Django's Admin
   To use Django's admin portal, you first create a superuser who can log in:
