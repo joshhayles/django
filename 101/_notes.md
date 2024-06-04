@@ -1,4 +1,4 @@
-5.12.24 - page 153 of 338
+page 153 of 338
 
 # Follow this general process for creating a new Django environment, project, and app:
   ## Create a new folder directory and navigate into it
