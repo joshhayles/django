@@ -1,4 +1,5 @@
-page 153 of 338
+page 201 of 338
+page 170 of 338 has verbiage / formatting issues that need to be pointed out to the writer
 
 # Follow this general process for creating a new Django environment, project, and app:
   ## Create a new folder directory and navigate into it
@@ -140,6 +141,13 @@ page 153 of 338
 
   To display our database content on the homepage, we have to link our views, templates, and URLs.
 
+  ## ALLOWED_HOSTS and CSRF_TRUSTED_ORIGINS (production settings)
+  There are four big settings that need to be toggled for production:
+  - DEBUG
+  - SECRET_KEY
+  - ALLOWED_HOSTS
+  - CSRF_TRUSTED_ORIGINS
+
 # Django Commands
   ## static files: compile all of your project's static files into a new root-level directory called staticfiles
   `python3 manage.py collectstatic`
@@ -147,3 +155,6 @@ page 153 of 338
   ## install environs (for environment variables) along with the django extension
     - be sure to import: from environs import Env
   `python3 -m pip install "environs[django]"==9.5.0`
+
+  ## generate a new secret key to use inside .env file
+  `python3 -c "import secrets; print(secrets.token_urlsafe())"`
