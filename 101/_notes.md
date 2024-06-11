@@ -1,4 +1,4 @@
-page 201 of 338
+page 252 of 338
 page 170 of 338 has verbiage / formatting issues that need to be pointed out to the writer
 
 # Follow this general process for creating a new Django environment, project, and app:
@@ -55,13 +55,22 @@ page 170 of 338 has verbiage / formatting issues that need to be pointed out to 
 
   Django links views to templates.
 
-  By default, Django's template loader will look within each app for related templates. However, this can become a complicated approach, as Django would look for nested views like this:
+  By default, Django's template loader will look for templates in a nested structure within each app. However, this can become a complicated approach, as Django would look for nested views like this:
 
   pages_app > templates > pages > home.html
 
   While this is a thorough, and safer approach by Django (it assures that the correct html files are associated with its corresponding app), there is an alternate method.
 
-  Instead, you can create a single project-level 'templates' directory and place all templates within it. By altering our django_project/settings.py file, we can tell Django to look in that specific directory for templates.
+  Instead, you can create a single project-level 'templates' directory and place all templates within it. Then, by updating the configuration for "DIRS" in our django_project/settings.py file, we can tell Django to look in that specific directory for templates:
+
+  ```python
+  TEMPLATES = [
+{
+...
+"DIRS": [BASE_DIR / "templates"], # new
+...
+}
+]
 
   - URL configuration: This maps URLs to their corresponding views, allowing you to define the structure of your web application and how different URL patterns should be handled.
 
