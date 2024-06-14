@@ -1,6 +1,3 @@
-page 252 of 338
-page 170 of 338 has verbiage / formatting issues that need to be pointed out to the writer
-
 # Follow this general process for creating a new Django environment, project, and app:
   ## Create a new folder directory and navigate into it
 
