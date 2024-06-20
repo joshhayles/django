@@ -29,6 +29,7 @@
 
 # Django Databases
   ## Migrate the database (server needs to be stopped first). Django will create a SQLite database, and migrate its built-in apps
+  `python3 manage.py makemigrations`
   `python3 manage.py migrate`
 
 # Django Views

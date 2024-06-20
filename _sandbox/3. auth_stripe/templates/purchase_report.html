@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <h2>Purchase Report</h2>
+  <p>Click the button below to purchase the report.</p>
+  <button class="btn btn-primary" id="purchaseReportBtn">Purchase Report</button>
+{% endblock content %}
+
+{% block script %}
+<script src="https://js.stripe.com/v3/"></script>
+<script src="{% static 'main.js' %}"></script>
+{% endblock script %}

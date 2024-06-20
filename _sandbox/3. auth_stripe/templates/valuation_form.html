@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Free Valuation Form</h2>
+  <form method="post" action="{% url 'reports:valuation_submission' %}">
+    {% csrf_token %}
+    <!-- Add form fields here -->
+    <div class="form-group">
+      <label for="property-address">Property Address</label>
+      <input type="text" class="form-control" id="property-address" name="property-address" required>
+    </div>
+    <div class="form-group">
+      <label for="proposed-market-value">Proposed Market Value</label>
+      <a href="https://esearch.galvestoncad.org/Search/Result?keywords=" target="_blank">Search for your home's Proposed Market value here</a>
+      <input type="number" class="form-control" id="proposed-market-value" name="proposed-market-value" min="100000" max="999999" required>
+    </div>
+    <div class="form-group">
+      <label for="property-type">Property Type</label>
+      <select class="form-control" id="property-type" name="property-type" required>
+        <option value="">Select Property Type</option>
+        <option value="1-story">1 Story</option>
+        <option value="1.5-story">1.5 Story</option>
+        <option value="2-story">2 Story</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="square-footage">Square Footage</label>
+      <select class="form-control" id="square-footage" name="square-footage" required>
+        <option value="">Select Square Footage</option>
+        <option value="less-than-2000">Less than 2000 square feet</option>
+        <option value="2000-2400">2000-2400</option>
+        <option value="2400-2700">2400-2700</option>
+        <option value="2700-3000">2700-3000</option>
+        <option value="3000-3400">3000-3400</option>
+        <option value="3400-3700">3400-3700</option>
+        <option value="3700-4000">3700-4000</option>
+        <option value="above-4000">Above 4000 square feet</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="year-built">Year Built</label>
+      <input type="text" class="form-control" id="year-built" name="year-built" pattern="\d{4}" maxlength="4" required>
+    </div>
+    <div class="form-group">
+      <label for="private-pool">Private Pool</label>
+      <select class="form-control" id="private-pool" name="private-pool" required>
+        <option value="">Select Option</option>
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">See Results</button>
+  </form>
+{% endblock content %}
