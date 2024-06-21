@@ -2,6 +2,7 @@
 
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
+from reports.models import Property
 from django.conf import settings
 from django.http.response import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -13,7 +14,7 @@ class HomePageView(TemplateView):
 
 class SuccessView(TemplateView):
     template_name = 'success.html'
-
+    
 class CancelledView(TemplateView):
     template_name = 'cancelled.html'
 
@@ -77,6 +78,5 @@ def stripe_webhook(request):
     # Handle checkout.session.completed event
     if event['type'] == 'checkout.session.completed':
         print("Payment was successful")
-        # TODO: custom code here
 
     return HttpResponse(status=200)
