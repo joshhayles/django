@@ -1,0 +1,92 @@
+[
+  {
+      "image_url": "https://example.com/image1.jpg",
+      "address": "123 Main St, Anytown, USA",
+      "square_footage": 2100,
+      "year_built": 2005,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "sold_price": 350000
+  },
+  {
+      "image_url": "https://example.com/image2.jpg",
+      "address": "456 Oak St, Anytown, USA",
+      "square_footage": 1800,
+      "year_built": 2010,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "sold_price": 320000
+  },
+  {
+      "image_url": "https://example.com/image3.jpg",
+      "address": "789 Pine St, Anytown, USA",
+      "square_footage": 2300,
+      "year_built": 2012,
+      "bedrooms": 5,
+      "bathrooms": 4,
+      "sold_price": 450000
+  },
+  {
+      "image_url": "https://example.com/image4.jpg",
+      "address": "101 Maple St, Anytown, USA",
+      "square_footage": 1500,
+      "year_built": 2000,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "sold_price": 300000
+  },
+  {
+      "image_url": "https://example.com/image5.jpg",
+      "address": "202 Birch St, Anytown, USA",
+      "square_footage": 1700,
+      "year_built": 2008,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "sold_price": 340000
+  },
+  {
+      "image_url": "https://example.com/image6.jpg",
+      "address": "303 Cedar St, Anytown, USA",
+      "square_footage": 2000,
+      "year_built": 2015,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "sold_price": 360000
+  },
+  {
+      "image_url": "https://example.com/image7.jpg",
+      "address": "404 Elm St, Anytown, USA",
+      "square_footage": 2200,
+      "year_built": 2018,
+      "bedrooms": 5,
+      "bathrooms": 4,
+      "sold_price": 480000
+  },
+  {
+      "image_url": "https://example.com/image8.jpg",
+      "address": "505 Spruce St, Anytown, USA",
+      "square_footage": 1900,
+      "year_built": 2003,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "sold_price": 330000
+  },
+  {
+      "image_url": "https://example.com/image9.jpg",
+      "address": "606 Walnut St, Anytown, USA",
+      "square_footage": 1600,
+      "year_built": 2011,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "sold_price": 310000
+  },
+  {
+      "image_url": "https://example.com/image10.jpg",
+      "address": "707 Ash St, Anytown, USA",
+      "square_footage": 2400,
+      "year_built": 2016,
+      "bedrooms": 5,
+      "bathrooms": 4,
+      "sold_price": 500000
+  }
+]

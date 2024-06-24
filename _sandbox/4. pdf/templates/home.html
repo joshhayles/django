@@ -1,0 +1,31 @@
+{% extends "base.html" %} 
+{% block title %}Home{% endblock title %} 
+
+{% block content %} 
+{% if user.is_authenticated %}
+<p>Hi {{ user.username }}!</p>
+<p>Click the button below to continue with your free valuation.</p>
+<button class="btn btn-success ml-2" id="valuationBtn" type="button">Free Valuation</button>
+<!-- <p><a href="{% url 'logout' %}">Log Out</a></p> -->
+{% else %}
+<p>You are not logged in</p>
+{% endif %} 
+{% endblock content %} 
+
+{% block script %}
+<script>
+  console.log("JavaScript is running");
+  document.addEventListener("DOMContentLoaded", () => {
+    const valuationBtn = document.getElementById("valuationBtn");
+    valuationBtn.addEventListener("click", () => {
+      const valuationFormUrl = "{{ valuation_form_url }}";
+      console.log("Valuation Form URL:", valuationFormUrl);
+      if (valuationFormUrl) {
+        window.location.href = valuationFormUrl;
+      } else {
+        console.error("Valuation Form URL is not defined");
+      }
+    });
+  });
+</script>
+{% endblock script %}
