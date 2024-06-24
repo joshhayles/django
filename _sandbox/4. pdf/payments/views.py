@@ -7,6 +7,7 @@ from django.conf import settings
 from django.http.response import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
+from django.shortcuts import redirect
 import stripe
 
 class HomePageView(TemplateView):
@@ -14,7 +15,19 @@ class HomePageView(TemplateView):
 
 class SuccessView(TemplateView):
     template_name = 'success.html'
+
+    def get(self, request, *args, **kwargs):
+        # handle GET request
+        session_id = request.GET.get('session_id')
+        context = {'session_id': session_id}
+        return render(request, self.template_name, context)
     
+    def post(self, request, *args, **kwargs):
+        # handle POST request (PDF download)
+        session_id = request.POST.get('session_id')
+
+        return redirect(reverse('reports:generate_pdf') + f'?session_id={session_id}')
+
 class CancelledView(TemplateView):
     template_name = 'cancelled.html'
 

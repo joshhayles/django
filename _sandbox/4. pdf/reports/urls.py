@@ -7,4 +7,5 @@ urlpatterns = [
     path('valuation-submission/', valuation_submission, name='valuation_submission'),
     path('purchase-report/', purchase_report, name='purchase_report'),
     path('generate-pdf/', generate_pdf_view, name='generate_pdf'),
+    path('report-success/', generate_pdf_view, name='report-success'),
 ]

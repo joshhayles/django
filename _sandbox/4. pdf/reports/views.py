@@ -26,7 +26,7 @@ def purchase_report(request):
     return render(request, 'purchase_report.html')
 
 def generate_pdf_view(request):
-    if request.method == 'POST':
+    if request.method == 'POST' or request.GET.get('session_id'):
         # generate the PDF
         data = {
             'prepared_by': 'Josh Hayles',
@@ -45,4 +45,4 @@ def generate_pdf_view(request):
         return response
     
     # If it's a GET request, just show the button
-    return render(request, 'reports/generate_pdf.html')
+    return render(request, 'success.html')

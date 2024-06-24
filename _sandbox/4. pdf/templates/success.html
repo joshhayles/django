@@ -1,8 +1,14 @@
-{% extends "base.html" %} {% block content %}
-<section class="section">
-  <div class="container">
+{% extends "base.html" %}
+
+{% block title %}Download Report{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
     <p>Your payment was successful! You can download your report.</p>
-      <button class="btn btn-primary">Access Report</button>
-  </div>
-</section>
-{% endblock content %}
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="session_id" value="{{ session_id }}">
+        <button type="submit" class="btn btn-primary">Download Report!</button>
+    </form>
+</div>
+{% endblock %}
