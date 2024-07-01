@@ -1,11 +1,10 @@
 from django.urls import path 
-from reports.views import valuation_form, valuation_submission, purchase_report, generate_pdf_view
+from reports.views import evaluation_form, evaluation_submission, purchase_report, GeneratePDFView
 
 app_name = 'reports'
 urlpatterns = [
-    path('valuation-form/', valuation_form, name='valuation_form'),
-    path('valuation-submission/', valuation_submission, name='valuation_submission'),
+    path('evaluation-form/', evaluation_form, name='evaluation_form'),
+    path('evaluation-submission/', evaluation_submission, name='evaluation_submission'),
     path('purchase-report/', purchase_report, name='purchase_report'),
-    path('generate-pdf/', generate_pdf_view, name='generate_pdf'),
-    path('report-success/', generate_pdf_view, name='report-success'),
+    path('generate-pdf/', GeneratePDFView.as_view(), name='generate_pdf'),
 ]

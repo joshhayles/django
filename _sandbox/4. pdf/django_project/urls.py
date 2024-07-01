@@ -26,6 +26,6 @@ urlpatterns = [
     path('payments/', include('payments.urls')),
     path('reports/', include('reports.urls')),
     path('config/', stripe_config, name='stripe_config'),
-    path('valuation_form/', retrieve_user_information, name='valuation_form'),
+    path('evaluation_form/', retrieve_user_information, name='evaluation_form'),
     path("", include('pages.urls')),
 ]

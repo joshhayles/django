@@ -4,8 +4,8 @@
 {% block content %} 
 {% if user.is_authenticated %}
 <p>Hi {{ user.username }}!</p>
-<p>Click the button below to continue with your free valuation.</p>
-<button class="btn btn-success ml-2" id="valuationBtn" type="button">Free Valuation</button>
+<p>Click the button below to access your free evaluation.</p>
+<button class="btn btn-success ml-2" id="evaluationBtn" type="button">Free Evaluation</button>
 <!-- <p><a href="{% url 'logout' %}">Log Out</a></p> -->
 {% else %}
 <p>You are not logged in</p>
@@ -16,14 +16,14 @@
 <script>
   console.log("JavaScript is running");
   document.addEventListener("DOMContentLoaded", () => {
-    const valuationBtn = document.getElementById("valuationBtn");
-    valuationBtn.addEventListener("click", () => {
-      const valuationFormUrl = "{{ valuation_form_url }}";
-      console.log("Valuation Form URL:", valuationFormUrl);
-      if (valuationFormUrl) {
-        window.location.href = valuationFormUrl;
+    const evaluationBtn = document.getElementById("evaluationBtn");
+    evaluationBtn.addEventListener("click", () => {
+      const evaluationFormUrl = "{{ evaluation_form_url }}";
+      console.log("Evaluation Form URL:", evaluationFormUrl);
+      if (evaluationFormUrl) {
+        window.location.href = evaluationFormUrl;
       } else {
-        console.error("Valuation Form URL is not defined");
+        console.error("Evaluation Form URL is not defined");
       }
     });
   });

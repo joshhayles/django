@@ -25,4 +25,4 @@ def retrieve_user_information(request):
         'state': user.state,
         'zip': user.zip,
     }
-    return render(request, 'valuation_form.html', context)
+    return render(request, 'evaluation_form.html', context)

@@ -8,3 +8,11 @@
 body {
   font-family: 'Inter', sans-serif !important;
 }
+
+.btn {
+  background-color: #198754;
+}
+
+.btn:hover {
+  background-color: #0b5ed7;
+}

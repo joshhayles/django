@@ -1,3 +1,13 @@
 .btn {
-  margin-top: 20px;
+  margin-top: 30px;
+  border-color: black;
+}
+
+.form-group {
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
 }

@@ -6,5 +6,5 @@ class HomePageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['valuation_form_url'] = reverse('reports:valuation_form')
+        context['evaluation_form_url'] = reverse('reports:evaluation_form')
         return context

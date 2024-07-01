@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>Free Valuation Form</h2>
-  <form method="post" action="{% url 'reports:valuation_submission' %}">
+  <h2>Free Evaluation Form</h2>
+  <form method="post" action="{% url 'reports:evaluation_submission' %}">
     {% csrf_token %}
     <!-- Add form fields here -->
     <div class="form-group">
