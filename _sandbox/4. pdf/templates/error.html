@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Error</h1>
+<p>An error occurred: {{ error_message }}</p>
+<a href="{% url 'reports:evaluation_form' %}">Back to Evaluation Form</a>
+{% endblock %}

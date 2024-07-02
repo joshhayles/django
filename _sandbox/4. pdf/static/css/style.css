@@ -1,12 +1,52 @@
 @font-face {
   font-family: 'Inter';
   src: url('../fonts/Inter-Light.ttf') format('truetype');
-  font-weight: 400;
+  font-weight: 600;
   font-style: normal;
 }
 
-body {
-  font-family: 'Inter', sans-serif !important;
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+body, html {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+#dropdownUser1 {
+  font-size: 16px;
+}
+
+#login {
+  font-size: 17px;
+  color: rgba(54, 69, 79, 1);
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#signup {
+  font-size: 18px;
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+#signup:hover {
+  background-color: white;
+  color: rgba(54, 69, 79, 1);
+}
+
+.dropdown-item {
+  font-size: 16px;
+}
+
+.forgot-password-text {
+  margin-top: 20px;
 }
 
 .btn {

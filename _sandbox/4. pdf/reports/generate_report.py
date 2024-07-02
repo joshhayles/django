@@ -18,6 +18,7 @@ from io import BytesIO
 from django.conf import settings
 from django.contrib.staticfiles import finders
 from PIL import Image as PILImage
+from .models import Property
 
 # Image compression
 def compress_image(image_path, quality=60, max_size=(300,300)):
@@ -29,26 +30,28 @@ def compress_image(image_path, quality=60, max_size=(300,300)):
     return img_buffer
 
 # Register font
-def get_font_path():
+def get_font_path(font_name):
     # Try the production static root first
-    font_path = os.path.join(settings.STATIC_ROOT, 'fonts', 'Inter-Regular.ttf')
+    font_path = os.path.join(settings.STATIC_ROOT, 'fonts', font_name)
     if os.path.exists(font_path):
         return font_path
     
     # If not found, try the development static directories
     for static_dir in settings.STATICFILES_DIRS:
-        font_path = os.path.join(static_dir, 'fonts', 'Inter-Regular.ttf')
+        font_path = os.path.join(static_dir, 'fonts', font_name)
         if os.path.exists(font_path):
             return font_path
     
     # If still not found, raise an error
-    raise FileNotFoundError("Inter-Regular.ttf not found in static directories")
+    raise FileNotFoundError(f"{font_name} not found in static directories")
 
 # Register font
 try:
-    font_path = get_font_path()
-    pdfmetrics.registerFont(TTFont('Inter-Regular', font_path))
-    logging.info(f"Font registered successfully from: {font_path}")
+    regular_font_path = get_font_path('Inter-Regular.ttf')
+    bold_font_path = get_font_path('Inter-Bold.ttf')
+    pdfmetrics.registerFont(TTFont('Inter-Regular', regular_font_path))
+    pdfmetrics.registerFont(TTFont('Inter-Bold', bold_font_path))
+    logging.info(f"Font registered successfully from: {regular_font_path} and {bold_font_path}")
 except FileNotFoundError as e:
     logging.info(f"Error: {str(e)}")
 
@@ -239,6 +242,9 @@ def create_summary_graph(homes_data):
 def create_home_table(homes, placeholder_image, title_style, normal_style):
     logging.info(f"Creating home table for {len(homes)} homes")
 
+    # create bold style
+    bold_style = ParagraphStyle('BoldStyle', parent=normal_style, fontName='Inter-Bold')
+
     data = []
     for home in homes:
         col_data = [
@@ -247,8 +253,8 @@ def create_home_table(homes, placeholder_image, title_style, normal_style):
             [Paragraph(f"<b>MLS #:</b> {home.get('MLS', 'N/A')}", normal_style)],
             [Paragraph(f"<b>List Price:</b> {format_price(home.get('list_price', 'N/A'))}", normal_style)],
             [Paragraph(f"<b>LP per SF:</b> {home.get('lp_sf', 'N/A')}", normal_style)],
-            [Paragraph(f"<b>Sold Price:</b> {format_price(home.get('sold_price', 'N/A'))}", normal_style)],
-            [Paragraph(f"<b>SP per SF:</b> {home.get('sp_sf', 'N/A')}", normal_style)],
+            [Paragraph(f"<b>Sold Price:</b> {format_price(home.get('sold_price', 'N/A'))}", bold_style)],
+            [Paragraph(f"<b>SP per SF:</b> {home.get('sp_sf', 'N/A')}", bold_style)],
             [Paragraph(f"<b>Square Feet:</b> {home.get('square_footage', 'N/A')}", normal_style)],
             [Paragraph(f"<b>Year Built:</b> {home.get('year_built', 'N/A')}", normal_style)],
             [Paragraph(f"<b>Beds:</b> {home.get('bedrooms', 'N/A')} <b>Baths:</b> {home.get('bathrooms', 'N/A')}", normal_style)],
@@ -344,6 +350,8 @@ def footer(canvas, doc):
     canvas.restoreState()
 
 def create_pdf(homes_data, user_data):
+    # importing Property model at the top, and I can pass property_instance as an argument to use in the report generation process
+
     logging.info("Starting PDF creation")
     logging.info(f"Original number of homes: {len(homes_data)}")
 

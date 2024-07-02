@@ -6,3 +6,8 @@ class Property(models.Model):
     property_type = models.CharField(max_length=10, null=True)
     square_feet = models.IntegerField(default=2000)
     year_built = models.IntegerField(default=2010)
+    private_pool = models.BooleanField(null=True)
+
+    def __str__(self):
+        return f"Evaluation for {self.address}"
+
