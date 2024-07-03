@@ -6,7 +6,7 @@ from .models import CustomUser
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
-    mdoel = CustomUser
+    model = CustomUser
     list_display = [
         "first_name",
         "last_name",
@@ -14,5 +14,17 @@ class CustomUserAdmin(UserAdmin):
         "username",
         "is_staff",
     ]
+    fieldsets = (
+        (None, {'fields': ('username', 'password')}),
+        ('Personal info', {'fields': ('first_name', 'last_name', 'email', 'address', 'city', 'state', 'zip')}),
+        ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
+        ('Important dates', {'fields': ('last_login', 'date_joined')}),
+    )
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('username', 'email', 'password1', 'password2', 'address', 'city', 'state', 'zip'),
+        }),
+    )
 
 admin.site.register(CustomUser, CustomUserAdmin)

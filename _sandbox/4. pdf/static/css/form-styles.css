@@ -6,8 +6,13 @@
 .form-group {
   margin-top: 1rem;
   margin-bottom: 0.75rem;
+  padding-bottom: 10px;
 }
 
 .form-group label {
   margin-bottom: 0.5rem;
+}
+
+.register-btn-confirm {
+  margin-bottom: 2rem;
 }
