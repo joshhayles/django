@@ -26,3 +26,5 @@ def retrieve_user_information(request):
         'zip': user.zip,
     }
     return render(request, 'evaluation_form.html', context)
+
+

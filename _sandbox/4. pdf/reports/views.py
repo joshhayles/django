@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
 from django.views import View
 from django.conf import settings
@@ -55,8 +56,10 @@ def purchase_report(request):
     # You can add your Stripe checkout integration here
     return render(request, 'purchase_report.html')
 
-class GeneratePDFView(View):
+class GeneratePDFView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
+        logging.info(f"GeneratePDFView GET method called. User authenticated: {request.user.is_authenticated}")
+        logging.info(f"Username: {request.user.username}")
         try:
             logging.info("GeneratePDFView GET method called")
             
