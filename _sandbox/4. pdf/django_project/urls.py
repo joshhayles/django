@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from payments.views import stripe_config
-from accounts.views import retrieve_user_information
+from accounts.views import retrieve_user_information, profile_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +27,6 @@ urlpatterns = [
     path('reports/', include('reports.urls')),
     path('config/', stripe_config, name='stripe_config'),
     path('evaluation_form/', retrieve_user_information, name='evaluation_form'),
+    path('profile/', profile_view, name='profile'),
     path("", include('pages.urls')),
 ]

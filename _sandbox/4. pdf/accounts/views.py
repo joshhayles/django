@@ -27,4 +27,8 @@ def retrieve_user_information(request):
     }
     return render(request, 'evaluation_form.html', context)
 
+@login_required
+def profile_view(request):
+    return render(request, 'profile.html', {'user': request.user})
+
 

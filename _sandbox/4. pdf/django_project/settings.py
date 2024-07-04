@@ -162,6 +162,15 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
+# configure Email provider for production
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.your-email-provider.com' Ex: smtp.gmail.com
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'your-email@example.com'
+# EMAIL_HOST_PASSWORD = 'your-email-password' - use Env var for security
+# DEFAULT_FROM_EMAIL = 'your-email@example.com'
+
 SESSION_COOKIE_AGE = 1209600 # two weeks, in seconds
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 SESSION_SAVE_EVERY_REQUEST = True
