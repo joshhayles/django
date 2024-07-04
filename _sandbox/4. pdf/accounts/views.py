@@ -1,9 +1,9 @@
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from .forms import CustomUserCreationForm
-from .models import CustomUser
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 class SignUpView(CreateView):
     form_class = CustomUserCreationForm
@@ -29,6 +29,12 @@ def retrieve_user_information(request):
 
 @login_required
 def profile_view(request):
+    if request.method == 'POST':
+        if 'profile_picture' in request.FILES:
+            request.user.profile_picture = request.FILES['profile_picture']
+            request.user.save()
+            messages.success(request, 'Profile picture updated successfully!')
+            return redirect('profile')
     return render(request, 'profile.html', {'user': request.user})
 
 

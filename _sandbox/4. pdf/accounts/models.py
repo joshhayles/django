@@ -7,6 +7,7 @@ from utils.mailchimp_add_member import add_member_to_mailchimp
 # AbstractUser (which subclasses AbstractBaseUser) is the recommended approach vs AbstractBaseUser because it's easier to update additional fields
 
 class CustomUser(AbstractUser):
+    profile_picture = models.ImageField(upload_to='profile_pics/', null=True, blank=True)
     address = models.CharField(max_length=100, blank=False)
     city = models.CharField(max_length=50, blank=False)
     state = models.CharField(max_length=5, blank=False)

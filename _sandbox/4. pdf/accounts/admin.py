@@ -13,6 +13,10 @@ class CustomUserAdmin(UserAdmin):
         "email",
         "username",
         "is_staff",
+        "address",
+        "city",
+        "state",
+        "zip",
     ]
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
