@@ -18,6 +18,14 @@ body, html {
   font-size: 18px;
 }
 
+div.container a {
+  color: rgb(62, 126, 108);
+}
+
+div.container a:hover {
+  color: rgb(62, 126, 108, 0.8);
+}
+
 h2 {
   margin-top: 30px;
   margin-bottom: 30px
@@ -67,7 +75,7 @@ p {
 }
 
 #evaluationBtn {
-  font-size: 17px;
+  font-size: 18px;
   border-color: rgb(76, 158, 134);
   background-color: rgba(2, 92, 50, 0.834);
   padding-left: 20px;
@@ -81,7 +89,7 @@ p {
 }
 
 #evaluationResultsBtn {
-  font-size: 17px;
+  font-size: 18px;
   border-color: rgb(76, 158, 134);
   background-color: rgba(2, 92, 50, 0.834);
   padding-left: 20px;
@@ -95,7 +103,7 @@ p {
 }
 
 #passwordResetBtn {
-  font-size: 17px;
+  font-size: 18px;
   border-color: rgb(76, 158, 134);
   background-color: rgba(2, 92, 50, 0.834);
   padding-left: 20px;
@@ -109,7 +117,7 @@ p {
 }
 
 #purchaseReportBtn {
-  font-size: 17px;
+  font-size: 18px;
   border-color: rgb(76, 158, 134);
   background-color: rgba(2, 92, 50, 0.834);
   padding-left: 20px;
@@ -123,7 +131,7 @@ p {
 }
 
 #downloadReportBtn {
-  font-size: 17px;
+  font-size: 18px;
   border-color: rgb(76, 158, 134);
   background-color: rgba(2, 92, 50, 0.834);
   padding-left: 20px;

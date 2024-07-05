@@ -33,8 +33,12 @@ def profile_view(request):
         if 'profile_picture' in request.FILES:
             request.user.profile_picture = request.FILES['profile_picture']
             request.user.save()
-            messages.success(request, 'Profile picture updated successfully!')
-            return redirect('profile')
+        
+        elif request.POST.get('remove_picture') == 'true':
+            request.user.profile_picture = None 
+            request.user.save()
+            
+        return redirect('profile')
     return render(request, 'profile.html', {'user': request.user})
 
 

@@ -31,8 +31,21 @@
       <form method="post" enctype="multipart/form-data" id="profile-picture-form">
         {% csrf_token %}
         <input type="file" id="profile-picture-upload" name="profile_picture" accept="image/*" style="display: none" />
+        <input type="hidden" id="remove-picture" name="remove_picture" value="false" />
       </form>
     </div>
+    {% if user.profile_picture %}
+      <p id="remove-image" class="remove-image-text">No Image</p>
+    {% endif %}
+</div>
+
+<div class="profile-sections">
+  <div class="profile-section personal-section">
+    <h3>Personal</h3>
+  </div>
+  <div class="profile-section home-section">
+    <h3>Home</h3>
+  </div>
 </div>
 {% else %}
 <p>You are not logged in</p>
@@ -43,13 +56,26 @@
   const container = document.querySelector(".profile-picture-container");
   const fileInput = document.getElementById("profile-picture-upload");
   const form = document.getElementById("profile-picture-form");
+  const removeImageText = document.getElementById("remove-image");
+  const removePictureInput = document.getElementById("remove-picture");
 
-  container.addEventListener("click", function () {
-    fileInput.click();
+  container.addEventListener("click", function (e) {
+    if (e.target !== removeImageText) {
+      fileInput.click();
+    }
   });
 
   fileInput.addEventListener("change", function () {
+    removePictureInput.value = 'false';
     form.submit();
   });
+
+  if (removeImageText) {
+    removeImageText.addEventListener("click", function (e) {
+      e.preventDefault();
+      removePictureInput.value = "true";
+      form.submit();
+    });
+  }
 </script>
 {% endblock %}

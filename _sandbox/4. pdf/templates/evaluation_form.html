@@ -2,20 +2,20 @@
 
 {% block content %}
   <h2>Free Evaluation Form</h2>
+  <div class="eval-form-intro">
+    <p>Fill out this short form and instantly find out if you have a solid case for protesting your property taxes.</p>
+    <p><strong>Important:</strong> The accuracy of our analysis depends on your information being correct. If you are unsure of anything below, you can <a href="https://esearch.galvestoncad.org/Search/Result?keywords=" target="_blank">find your home here </a> and get it directly from the Appraisal District.</p>
+  </div>
   <form method="post" action="{% url 'reports:evaluation_submission' %}">
     {% csrf_token %}
     <!-- Add form fields here -->
     <div class="form-group">
-      <label for="property-address">Property Address</label>
-      <input type="text" class="form-control" id="property-address" name="property-address" required>
+      <input type="text" class="form-control" id="property-address" name="property-address" placeholder="Complete Property Address: 123 Elm St. Nightmare City, Tx 77573" required>
     </div>
     <div class="form-group">
-      <label for="proposed-market-value">Proposed Market Value</label>
-      <a href="https://esearch.galvestoncad.org/Search/Result?keywords=" target="_blank">Find your home</a>
-      <input type="number" class="form-control" id="proposed-market-value" name="proposed-market-value" min="100000" max="999999" required>
+      <input type="number" class="form-control" id="proposed-market-value" name="proposed-market-value" min="100000" max="999999" placeholder="Newly Proposed Market Value from Appraisal District" required>
     </div>
     <div class="form-group">
-      <label for="property-type">Property Type</label>
       <select class="form-control" id="property-type" name="property-type" required>
         <option value="">Select Property Type</option>
         <option value="1-story">1 Story</option>
@@ -24,7 +24,6 @@
       </select>
     </div>
     <div class="form-group">
-      <label for="square-footage">Square Feet</label>
       <select class="form-control" id="square-footage" name="square-footage" required>
         <option value="">Select Square Footage</option>
         <option value="less-than-2000">Less than 2000 square feet</option>
@@ -38,13 +37,11 @@
       </select>
     </div>
     <div class="form-group">
-      <label for="year-built">Year Built</label>
-      <input type="text" class="form-control" id="year-built" name="year-built" pattern="\d{4}" maxlength="4" required>
+      <input type="text" class="form-control" id="year-built" name="year-built" pattern="\d{4}" maxlength="4" placeholder="Year Built" required>
     </div>
     <div class="form-group">
-      <label for="private-pool">Private Pool</label>
       <select class="form-control" id="private-pool" name="private-pool" required>
-        <option value="">Select Option</option>
+        <option value="">Private Pool</option>
         <option value="no">No</option>
         <option value="yes">Yes</option>
       </select>

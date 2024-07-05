@@ -4,11 +4,11 @@
 
 {% block content %}
 <div class="container mt-5">
-    <p>Your payment was successful! You can download your report.</p>
+    <p>Your payment was successful! You can download your report below.</p>
     <form method="post">
         {% csrf_token %}
         <input type="hidden" name="session_id" value="{{ session_id }}">
-        <button type="submit" class="btn btn-primary" id="downloadReportBtn" >Download Report!</button>
+        <button type="submit" class="btn btn-primary" id="downloadReportBtn" >Download Report</button>
     </form>
 </div>
 {% endblock %}
