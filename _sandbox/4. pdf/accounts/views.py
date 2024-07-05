@@ -3,12 +3,19 @@ from django.views.generic import CreateView
 from .forms import CustomUserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login
 from django.contrib import messages
 
 class SignUpView(CreateView):
     form_class = CustomUserCreationForm
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('home')
     template_name = 'registration/signup.html'
+
+    def form_valid(self, form):
+        valid = super().form_valid(form)
+        user = form.save()
+        login(self.request, user)  # This line logs in the user
+        return valid
 
 @login_required
 def retrieve_user_information(request):

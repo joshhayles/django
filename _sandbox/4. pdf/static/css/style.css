@@ -148,6 +148,11 @@ p {
   font-size: 16px;
 }
 
+.dropdown-item:hover {
+  color: rgb(62, 126, 108);
+  background-color: white;
+}
+
 .forgot-password-text {
   margin-top: 20px;
 }
